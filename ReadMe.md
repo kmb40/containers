@@ -1,0 +1,1 @@
+The purpose of this MVP is to show how an app can be containerized and ported to multiple environments. 
