@@ -1,7 +1,11 @@
-FROM nginx:alpine
+FROM alpine
 
-COPY . /usr/share/nginx/html
+RUN apk upgrade
+RUN apk add --no-cache bash
 
-EXPOSE 80
+WORKDIR /app
 
-CMD ["nginx", "-g", "daemon off;"]
+COPY entrypoint.sh .
+RUN chmod +x entrypoint.sh
+
+ENTRYPOINT [ "/app/entrypoint.sh" ]
